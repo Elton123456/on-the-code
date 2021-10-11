@@ -56,11 +56,14 @@ class Solution {
             return 0;
         HashMap<Character,Integer> map = new HashMap<>();
         int max = 0;
+        //记录窗口左边下标索引
         int left = 0;
         for (int i = 0;i < s.length();i++){
             if (map.containsKey(s.charAt(i))){
-                left = Math.max(left,map.get(s.charAt(i)) + 1);
+                //遇到相同的字符，窗口左索引往右移动一位，所以要+1
+                left = Math.max(left,map.get(s.charAt(i)) + 1); //abcadef
             }
+            //覆盖重复的key，如abca，第一次是a对应的i=0，第二次put时，a对应的i=3
             map.put(s.charAt(i),i);
             max = Math.max(max,i-left+1);
         }
