@@ -47,6 +47,8 @@ class Solution {
         int left = 0;
         int right = nums.length-1;
         //排序
+        //最最优美的地方就是，首先将给定的 num 排序
+        //这样我们就可以用两个指针，一个指向头，一个指向尾，去找这两个数字，这样的话，找另外两个数时间复杂度就会从 O（n²），降到 O（n）
         quickSort(nums,left,right);
         //双指针
         int len = nums.length;

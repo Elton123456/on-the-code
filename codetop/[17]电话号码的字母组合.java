@@ -40,8 +40,34 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    // 数组0、1下标空着
+    private static final String[] KEYS = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
     public List<String> letterCombinations(String digits) {
+        if(digits.equals("")) {
+            return new ArrayList<String>();
+        }
+        List<String> rs = new LinkedList<String>();
+        combination("", digits, 0, rs);
+        return rs;
+    }
 
+    /**
+     *
+     * @param prefix 前缀
+     * @param digits 仅包含数字 2-9 的字符串
+     * @param offset 代表在加哪个数字
+     * @param ret
+     */
+    private void combination(String prefix, String digits, int offset, List<String> ret) {
+        if (offset == digits.length()) {
+            ret.add(prefix);
+            return;
+        }
+        // '9' - '0' = 9
+        String letters = KEYS[(digits.charAt(offset) - '0')];
+        for (int i = 0; i < letters.length(); i++) {
+            combination(prefix + letters.charAt(i), digits, offset + 1, ret);
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
