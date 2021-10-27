@@ -53,22 +53,79 @@
 // 👍 1467 👎 0
 
 
+import java.util.Arrays;
+import java.util.Comparator;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public int coinChange(int[] coins, int amount) {
-        if (coins == null||coins.length == 0||amount <= 0){
-            return 0;
-        }
-        int[] dp = new int[amount+1];
-        Arrays.fill(dp,amount+1);
-        dp[0] = 0;
-        for (int j = 0;j < coins.length;j++){
-            for (int i = coins[j];i <= amount;i++){
-                dp[i] = Math.min(dp[i],dp[i-coins[j]] + 1);
-            }
-        }
-        return dp[amount] > amount ? -1 : dp[amount];
+    // 贪心算法2.0， 引入回溯法解决过于贪心的问题
+    public int coinChange(int[] coins, int amount){
+        // 倒序
+        Arrays.sort(coins, Collections.reverseOrder());
+        int minCount = getMinCoinCountLoop(coins,amount,0);
+
+        //int valueCount = coins.length; //表示不同面额的数量
+
+
     }
+
+    private int getMinCoinCountLoop(int[] coins, int amount,int min){
+
+    }
+
+    private int getMinCoinCountOfValue(int[] coins,int amount,int minCount){
+
+    }
+
+    // 贪心算法1.0， 出现过于贪心的问题
+    // 问题case：[186,419,83,408] 6249 贪心算法返回-1，动态规划返回20
+//    public int coinChange(int[] coins, int amount){
+//        int res = amount;
+//        int count = 0;
+//        // int[] 转 Integer[]
+//        Integer[] coinss = Arrays.stream(coins).boxed().toArray(Integer[]::new);
+//        //从大到小排序数组元素
+//        Arrays.sort(coinss,new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer i1, Integer i2) {
+//                return i2 - i1;
+//            }
+//        });
+//        // 从大到小遍历所有面值
+//        // coins.length可表示不同面额的数量
+//        for (int i = 0;i < coinss.length;i++){
+//            System.out.println(coinss[i]);
+//            int currentCount = res / coinss[i];
+//            res -= currentCount*coinss[i];
+//            count += currentCount;
+//
+//            if (res == 0){
+//                return count;
+//            }
+//        }
+//
+//        //没有符合的条件
+//        return -1;
+//    }
+
+//    public int coinChange(int[] coins, int amount) {
+//        if (coins == null||coins.length == 0||amount <= 0){
+//            return 0;
+//        }
+//        int[] dp = new int[amount+1];
+//        Arrays.fill(dp,amount+1);
+//        dp[0] = 0;
+//        for (int j = 0;j < coins.length;j++){
+//            for (int i = coins[j];i <= amount;i++){
+//                dp[i] = Math.min(dp[i],dp[i-coins[j]] + 1);
+//            }
+//        }
+//        return dp[amount] > amount ? -1 : dp[amount];
+//    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
+
+
+//        // Integer[] -> int[]
+//        intArr  = Arrays.stream(integerArr).mapToInt(Integer::valueOf).toArray();
+

@@ -52,7 +52,8 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head==null||head.next==null&&n==1)
+        // 非空判断
+        if(head == null||head.next == null&&n == 1)
             return null;
         ListNode node = head;
         ListNode delete = null;

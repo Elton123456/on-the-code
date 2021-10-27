@@ -33,6 +33,7 @@ import java.util.List;
  * }
  */
 class Solution {
+    // 入口
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode fast = head;
         //当n为0时，快指针走过n个节点，慢指针开始走，
@@ -40,7 +41,7 @@ class Solution {
         while(n-- > 0){
             fast = fast.next;
         }
-        //若链表为空或此时为空（说明n大于链表的长度），返回尾节点null
+        //若链表为空或此时快指针为空（说明n大于链表的长度），返回尾节点null
         if(fast == null)
             return head.next;
         //设置慢指针

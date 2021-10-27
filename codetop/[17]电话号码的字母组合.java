@@ -40,10 +40,11 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    // 数组0、1下标空着
+    // 数组0、1下标空着                       0   1    2      3      4      5      6      7       8       9
     private static final String[] KEYS = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+    // 入口
     public List<String> letterCombinations(String digits) {
-        if(digits.equals("")) {
+        if(digits.equals("")) { // 空字符串
             return new ArrayList<String>();
         }
         List<String> rs = new LinkedList<String>();
@@ -54,19 +55,19 @@ class Solution {
     /**
      *
      * @param prefix 前缀
-     * @param digits 仅包含数字 2-9 的字符串
+     * @param digits 仅包含数字 2-9 的字符串 "23"
      * @param offset 代表在加哪个数字
-     * @param ret
+     * @param rs 结果集
      */
-    private void combination(String prefix, String digits, int offset, List<String> ret) {
-        if (offset == digits.length()) {
-            ret.add(prefix);
+    private void combination(String prefix, String digits, int offset, List<String> rs) {
+        if (offset == digits.length()) { // 结束递归条件：已经全部加完了
+            rs.add(prefix);
             return;
         }
         // '9' - '0' = 9
-        String letters = KEYS[(digits.charAt(offset) - '0')];
-        for (int i = 0; i < letters.length(); i++) {
-            combination(prefix + letters.charAt(i), digits, offset + 1, ret);
+        String letters = KEYS[(digits.charAt(offset) - '0')]; //"abc"
+        for (int i = 0; i < letters.length(); i++) { //i =0 ,a "23" 1  null //i = 0,a+d,"23" 2 null //rs = ad
+            combination(prefix + letters.charAt(i), digits, offset + 1, rs);
         }
     }
 }
