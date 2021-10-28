@@ -54,27 +54,86 @@
 
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     // 贪心算法2.0， 引入回溯法解决过于贪心的问题
+    //问题case：测试用例:[3,7,405,436] 8839   Time Limit Exceeded
     public int coinChange(int[] coins, int amount){
+        if (coins == null||coins.length == 0||amount <= 0){
+            return 0;
+        }
+        // int[] 转 Integer[]
+        Integer[] coinss = Arrays.stream(coins).boxed().toArray(Integer[]::new);
         // 倒序
-        Arrays.sort(coins, Collections.reverseOrder());
+        Arrays.sort(coinss, Collections.reverseOrder());
+        // Integer[] -> int[]
+        coins  = Arrays.stream(coinss).mapToInt(Integer::valueOf).toArray();
+
         int minCount = getMinCoinCountLoop(coins,amount,0);
-
-        //int valueCount = coins.length; //表示不同面额的数量
-
-
+        return minCount;
     }
 
-    private int getMinCoinCountLoop(int[] coins, int amount,int min){
 
+    private static int getMinCoinCountLoop(int[] coins, int amount,int min){
+        int minCount = Integer.MAX_VALUE;
+        int valueCount = coins.length; //表示不同面额的数量
+
+        if (min == valueCount){
+            return Math.min(minCount,getMinCoinCountOfValue(coins,amount,0));
+        }
+
+        for (int i = min;i <= valueCount - 1;i++){
+            int tmp = coins[min];
+            coins[min] = coins[i];
+            coins[i] = tmp;
+            minCount = Math.min(minCount,getMinCoinCountLoop(coins,amount,min+1));
+
+            // 回溯
+            tmp = coins[min];
+            coins[min] = coins[i];
+            coins[i] = tmp;
+        }
+
+        return minCount > amount ? -1 : minCount;;
     }
 
-    private int getMinCoinCountOfValue(int[] coins,int amount,int minCount){
+    private static int getMinCoinCountOfValue(int[] coins,int amount,int valueIndex){
+        int valueCount = coins.length; //表示不同面额的数量
+        if (valueIndex == valueCount){
+            return Integer.MAX_VALUE;
+        }
 
+        int minResult = Integer.MAX_VALUE;
+        int currentValue = coins[valueIndex];
+        int maxCount = amount/currentValue;
+
+        for (int count = maxCount;count >= 0;count--){
+            int res = amount - count*currentValue;
+
+            // res为0，余额已除尽，组合完成
+            if (res == 0){
+                minResult = Math.min(minResult,count);
+                break;
+            }
+
+            // 否则尝试用剩余面值求当前余额的找零总数
+            int resCount = getMinCoinCountOfValue(coins,res,valueIndex+1);
+
+            //
+            if (resCount == Integer.MAX_VALUE){
+                if (count == 0){
+                    break;
+                }
+                continue;
+            }
+
+            minResult = Math.min(minResult,count+resCount);
+        }
+
+        return minResult;
     }
 
     // 贪心算法1.0， 出现过于贪心的问题

@@ -3,6 +3,15 @@
   <component name="LeetcodeEditor">
     <option name="projectConfig">
       <map>
+        <entry key="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[1143]最长公共子序列.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/doc/content/[1143]最长公共子序列.md" />
+              <option name="path" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[1143]最长公共子序列.java" />
+              <option name="questionId" value="1250" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[17]电话号码的字母组合.java">
           <value>
             <LeetcodeEditor>
@@ -18,6 +27,15 @@
               <option name="contentPath" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/doc/content/[19]删除链表的倒数第 N 个结点.md" />
               <option name="path" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[19]删除链表的倒数第 N 个结点.java" />
               <option name="questionId" value="19" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[1]两数之和.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/doc/content/[1]两数之和.md" />
+              <option name="path" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[1]两数之和.java" />
+              <option name="questionId" value="1" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -45,6 +63,15 @@
               <option name="contentPath" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/doc/content/[6]Z 字形变换.md" />
               <option name="path" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[6]Z 字形变换.java" />
               <option name="questionId" value="6" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[869]重新排序得到 2 的幂.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/doc/content/[869]重新排序得到 2 的幂.md" />
+              <option name="path" value="$PROJECT_DIR$/../../quyibo1/Documents/codetop/leetcode/editor/cn/[869]重新排序得到 2 的幂.java" />
+              <option name="questionId" value="900" />
             </LeetcodeEditor>
           </value>
         </entry>
