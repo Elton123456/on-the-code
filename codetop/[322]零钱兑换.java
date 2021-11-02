@@ -60,8 +60,7 @@ import java.util.Comparator;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     // 贪心算法2.0， 引入回溯法解决过于贪心的问题
-    //问题case：测试用例:[3,7,405,436] 8839   Time Limit Exceeded
-    public int coinChange(int[] coins, int amount){
+    public static void main(String[] args) {
         if (coins == null||coins.length == 0||amount <= 0){
             return 0;
         }
@@ -97,7 +96,7 @@ class Solution {
             coins[i] = tmp;
         }
 
-        return minCount > amount ? -1 : minCount;;
+        return minCount > amount ? -1 : minCount;
     }
 
     private static int getMinCoinCountOfValue(int[] coins,int amount,int valueIndex){
